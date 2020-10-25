@@ -11,6 +11,11 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.List;
+import java.util.Map;
 
 public class StepDefs {
 
@@ -90,4 +95,39 @@ public class StepDefs {
     public void user_is_not_logged_in_and_application_displayes_error_message_as(String string) {
         cmnPageObjects.validateTextUserDoesNotExistIsDisplayed();
     }
+
+    @When("User click on {string} Link")
+    public void user_click_on_link(String string) {
+        WebDriverWait wait  = new WebDriverWait(driver, 60);
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Create a Plan")));
+        element.click();
+        scn.log("Clicked on Create new Plan Link.");
+    }
+
+    @When("User fill the form with below details")
+    public void user_fill_the_form_with_below_details(Map<String,String> data) {
+//        driver.findElement(By.id("titleId")).sendKeys(data.get("TITLE"));
+//        driver.findElement(By.id("titleId")).sendKeys(data.get("TITLE"));
+//        driver.findElement(By.id("titleId")).sendKeys(data.get("TITLE"));
+//        driver.findElement(By.id("titleId")).sendKeys(data.get("TITLE"));
+//        driver.findElement(By.id("titleId")).sendKeys(data.get("TITLE"));
+//        driver.findElement(By.id("titleId")).sendKeys(data.get("TITLE"));
+//        driver.findElement(By.id("titleId")).sendKeys(data.get("TITLE"));
+//        driver.findElement(By.id("titleId")).sendKeys(data.get("TITLE"));
+//        driver.findElement(By.id("titleId")).sendKeys(data.get("TITLE"));
+    }
+
+    @Then("User plan is created")
+    public void user_plan_is_created() {
+        // Write code here that turns the phrase above into concrete actions
+        //throw new io.cucumber.java.PendingException();
+    }
+
+    @Then("User Plan is displayed under {string} Plan Page")
+    public void user_plan_is_displayed_under_plan_page(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        //throw new io.cucumber.java.PendingException();
+    }
+
+
 }
