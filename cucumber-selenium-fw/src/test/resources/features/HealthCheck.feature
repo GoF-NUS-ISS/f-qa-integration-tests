@@ -28,4 +28,15 @@ Feature: Travel Plan UI is Health Check
     Then User plan is created
     And User Plan is displayed under "View Existing" Plan Page
 
+  Scenario: User is not able to enter in valid characters in the input fields
+    Given User navigated to the home application url
+    And User enter username
+    And User enter password
+    And User click on Sign Button
+    And User is able to login in to the Application
+    When User click on "Create Plan" Link
+    And User fill the form with below details
+      | TITLE       | DATE        | FROM        | TO          | STARTING_ON | RETURNING_ON | COST        | MODE_OF_TRASPORT |
+      | ~!@#$%^&*() | ~!@#$%^&*() | ~!@#$%^&*() | ~!@#$%^&*() | ~!@#$%^&*() | ~!@#$%^&*()  | ~!@#$%^&*() | ~!@#$%^&*()      |
+    Then User gets the error message invalid characters
 
